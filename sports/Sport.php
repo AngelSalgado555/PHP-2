@@ -84,7 +84,7 @@ abstract class Sport{
             $ret .= "No";
         }
 
-        $ret += " - Números de jugadores: " . $this -> numPlayers;
+        $ret .= " - Números de jugadores: " . $this -> numPlayers;
         return $ret;
     }
 

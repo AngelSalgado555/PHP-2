@@ -13,8 +13,8 @@ class Rugby extends Sport{
     }
 
     public function __tostring(){
-        $ret = "Equipo " . parent::__tostring() .
-        $this -> teamName;
+        $ret = "Equipo " . $this -> teamName . 
+        " - " . parent::__tostring();
         return $ret;
     }
 

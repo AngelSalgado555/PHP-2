@@ -15,8 +15,9 @@ class Tenis extends Sport{
         return "Estoy jugando al Tenis";
     }
 
-    public function __tostring(): string{
-        return " ";
+    public function addRacket(String $racket){
+        $this -> rackets[] = $racket;
+        return $this -> rackets;
     }
 
 

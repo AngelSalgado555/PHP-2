@@ -7,8 +7,9 @@
 </head>
 <body>
     <?php
-    include "./sports/Sport.php";
-    include "./sports/Rugby.php";
+    //include "./sports/Sport.php";
+    include $_SERVER["DOCUMENT__ROOT"] . "./sports/Rugby.php";
+    include $_SERVER["DOCUMENT__ROOT"] . "./sports/Tenis.php";
     //Contruyo un objeto de la clase Sport: 
     //$s1 = new Sport("Equipo", true, 5); //No se puede porque sport es abstracta
 

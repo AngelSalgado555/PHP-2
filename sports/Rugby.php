@@ -1,5 +1,5 @@
 <?php
-
+include $_SERVER["DOCUMENT_ROOT"] . "/sports/Sport.php";
 class Rugby extends Sport{
     private string $teamName;
 

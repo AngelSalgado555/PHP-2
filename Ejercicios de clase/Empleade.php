@@ -84,19 +84,26 @@ class Empleade{
             return $this -> salary;
         }
 
-        if ($this -> salary >= 0 || $this -> salary <= 12450){
-            $porcentaje = 0.19;
-            $nuevoSalario = $this -> salary * $porcentaje;
-            return $nuevoSalario; 
-        } else if ($this -> salary >= 12451 || $this -> salary <= 20199){
-            $porcentaje = 0.24;
-            $nuevoSalario = $this -> salary * $porcentaje;
-            return $nuevoSalario;
-        } else if ($this -> salary >= 20200 || $this -> salary <= 35.199){
-            $porcentaje = 0.30;
-            $nuevoSalario = $this -> salary * $porcentaje;
-            return $nuevoSalario;
+        if ($this -> salary <= 12449){
+            $nuevoSalary = $this -> salary * 0.19;
+            return $nuevoSalary;
+        } else if ($this -> salary <= 20199){
+            $nuevoSalarySegundo = $this -> salary - 12450;
+            $totalSegundo = $nuevoSalarySegundo * 0.24;
+
+            $nuevoSalaryPrimero = $this -> salary - $nuevoSalarySegundo;
+            $totalPrimero = $nuevoSalaryPrimero * 0.19;
+
+            return $totalPrimero + $totalSegundo; 
+            
+        } else if ($this -> salary <= 35.199){
+            $nuevoSalary = 12450 * 0.19;
+            $nuevoSalary += (20199 - 12450) * 0.24;
+            $nuevoSalary += ($this -> salary - 20200) * 0.30;
+           
+            return $nuevoSalary;
         }
+
     }
 
 
@@ -105,12 +112,20 @@ class Empleade{
     }
 
     public function listarTelefonos(): string{
+        $lista = " ";
         for ($i=0; $i < count($this -> telefonos); $i++) { 
-            echo "". $this -> telefonos[$i] . ", ";
+            $lista .= $this -> telefonos[$i] . ", ";
         }
+
+        return $lista;
     }
 
+    public function vaciarTelefonos(): void{
+        unset($this -> telefonos);
+    }
     
+    public function toHtml(): string{
+        return "<p>". $this -> name . "</p>";
 
-
+    }
 }

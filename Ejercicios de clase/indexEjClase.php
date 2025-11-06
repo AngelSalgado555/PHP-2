@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Emepleade </title>
+    <title> Empleade </title>
 </head>
 <body>
     <?php
         echo "<h1><u> Ejercicio 1 </u></h1>";
-        include $_SERVER['DOCUMENT_ROOT'] . "/Ejercicios de clase/Empleade.php";
+        include $_SERVER['DOCUMENT_ROOT'] . "/PHP-2/Ejercicios de clase/Empleade.php";
 
         
-        $empleade = new Empleade("Pablito", "Sanchez Palacio", 20000);
+        $empleade = new Empleade("Pablito", "Sanchez Palacio", 20000, [604389822, 657832311]);
 
         echo "<b> Datos de Empleade </b>";
         echo "<br>";
@@ -28,6 +28,8 @@
         echo "El IRPF que debe pagar es: " . $empleade -> pagarImpuestos() . " €";
 
         echo "<h1><u> Ejercicio 2 </u></h1>";
+        echo $empleade -> toHtml();
+
         
         
 

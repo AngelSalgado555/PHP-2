@@ -84,25 +84,20 @@ class Empleade{
             return $this -> salary;
         }
 
-        if ($this -> salary <= 12449){
-            $nuevoSalary = $this -> salary * 0.19;
-            return $nuevoSalary;
-        } else if ($this -> salary <= 20199){
-            $nuevoSalarySegundo = $this -> salary - 12450;
-            $totalSegundo = $nuevoSalarySegundo * 0.24;
+        $salario = $this -> salary;
 
-            $nuevoSalaryPrimero = $this -> salary - $nuevoSalarySegundo;
-            $totalPrimero = $nuevoSalaryPrimero * 0.19;
+        if ($salario <= 12449){
+            $nuevoSalary = $salario * 0.19;
+        } else if ($salario <= 20199){
+            $nuevoSalary = 12450 * 0.19;
+            $nuevoSalary += ($salario - 12450) * 0.24;
 
-            return $totalPrimero + $totalSegundo; 
-            
-        } else if ($this -> salary <= 35.199){
+        } else if ($salario <= 35.199){
             $nuevoSalary = 12450 * 0.19;
             $nuevoSalary += (20199 - 12450) * 0.24;
-            $nuevoSalary += ($this -> salary - 20200) * 0.30;
-           
-            return $nuevoSalary;
+            $nuevoSalary += ($salario - 20200) * 0.30;
         }
+        return $nuevoSalary;
 
     }
 
@@ -125,7 +120,11 @@ class Empleade{
     }
     
     public function toHtml(): string{
-        return "<p>". $this -> name . "</p>";
-
+        $data = "<p>Nombre: ". $this -> name. ", Apellidos: ". $this -> surname. ", Salario: " . $this -> salary . ", Telefonos: <ul></p>";
+        for ($i=0; $i < count($this -> telefonos); $i++) { 
+            $data .= "<li>". $this -> telefonos[$i]."</li>";
+        }
+        $data .= "</ul>";
+        return $data;
     }
 }
